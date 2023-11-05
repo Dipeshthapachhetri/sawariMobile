@@ -87,7 +87,7 @@ function App(): JSX.Element {
             <DebugInstructions />
           </Section>
           <Section title="Learn More">
-            Hello this is github test.
+            Hello this is github.
           </Section>
           <LearnMoreLinks />
         </View>
