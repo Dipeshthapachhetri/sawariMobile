@@ -6,24 +6,17 @@
  */
 
 import React from 'react';
+import NavigationBar from './layouts/navigator';
+import SplashScreen from './layouts/splash';
+import LoginScreen from './layouts/login';
+import RegisterScreen from './layouts/register';
 import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import {SafeAreaView,ScrollView,StatusBar,StyleSheet,Text,useColorScheme,View,} from 'react-native';
+import {Colors, DebugInstructions, Header, LearnMoreLinks, ReloadInstructions,} from 'react-native/Libraries/NewAppScreen';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const Stack = createStackNavigator();
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -63,36 +56,16 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Hello this is github test.
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+
+    <Stack.Navigator>
+      <Stack.Screen name="Splash"    component={SplashScreen} options={{headerShown:false}} />
+      <Stack.Screen name="Login"     component={LoginScreen} options={{headerShown:false}}/>
+      <Stack.Screen name="Register"  component={RegisterScreen} options={{headerShown:false}}/>
+      <Stack.Screen name="Navigator" component={NavigationBar} options={{headerShown:false}}/>   
+    </Stack.Navigator>
+
+  </NavigationContainer>
   );
 }
 
