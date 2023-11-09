@@ -20,9 +20,8 @@ const HomeScreen = ({ navigation }) => {
     </Text>
     </View>
     <View style={{flex:10}}>
-    <ScrollView style={{backgroundColor:'blue',borderWidth:10,paddingTop:20}} 
-       contentContainerStyle={{flexDirection:'row',flexWrap:'wrap',justifyContent:'space-around'}}>
-
+    <ScrollView style={{backgroundColor:'blue',}} 
+       contentContainerStyle={{flexGrow:1, flexDirection:'row',flexWrap:'wrap',justifyContent:'space-around',paddingVertical:20}}>
       <View style={{height:180, width:"40%",marginLeft:10, borderWidth:0.5, borderRadius:8,marginTop:20,borderColor:'#dddddd'}}>
         <View style={{flex:1}}>
         <View style={{flex:4, justifyContent:"center",alignItems:'center'}}>
