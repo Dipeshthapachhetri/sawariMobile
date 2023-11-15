@@ -10,11 +10,13 @@ import NavigationBar from './layouts/navigator';
 import SplashScreen from './layouts/splash';
 import LoginScreen from './layouts/login';
 import RegisterScreen from './layouts/register';
+import OptScreen from './layouts/opt';
 import type {PropsWithChildren} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {SafeAreaView,ScrollView,StatusBar,StyleSheet,Text,useColorScheme,View,} from 'react-native';
 import {Colors, DebugInstructions, Header, LearnMoreLinks, ReloadInstructions,} from 'react-native/Libraries/NewAppScreen';
+
 
 const Stack = createStackNavigator();
 
@@ -63,6 +65,7 @@ function App(): JSX.Element {
       <Stack.Screen name="Login"     component={LoginScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Register"  component={RegisterScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Navigator" component={NavigationBar} options={{headerShown:false}}/>   
+      <Stack.Screen name="Opt" component={OptScreen} options={{headerShown:false}}/>   
     </Stack.Navigator>
 
   </NavigationContainer>
