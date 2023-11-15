@@ -13,7 +13,7 @@ const categories=['Bike','scooter','car','bus','excavator','micro'];
     
       <View style={{flex:1,backgroundColor:'#5ce1e6'}}>
     <Text style={{fontSize:22,fontWeight:'700',paddingHorizontal:20, marginTop:20}}>
-    What can we help you with, dipesh?
+    What can we help you with, Shiva?
     </Text>
     </View>
     <View style={{flex:10}}>
