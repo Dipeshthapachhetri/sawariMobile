@@ -34,10 +34,9 @@ const categories=['Bike','scooter','car','bus','excavator','micro'];
             </View>
           </TouchableOpacity>)
 
-          })
-        
-     
+          })    
 }
+   
     </ScrollView>
     </View>
     </View>
