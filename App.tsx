@@ -6,6 +6,9 @@
  */
 
 import React from 'react';
+import TestScreen from './layouts/test';
+import MockScreen from './layouts/mocktest';
+import QuestionScreen from './layouts/question';
 import NavigationBar from './layouts/navigator';
 import SplashScreen from './layouts/splash';
 import LoginScreen from './layouts/login';
@@ -66,6 +69,9 @@ function App(): JSX.Element {
       <Stack.Screen name="Register"  component={RegisterScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Navigator" component={NavigationBar} options={{headerShown:false}}/>   
       <Stack.Screen name="Opt" component={OptScreen} options={{headerShown:false}}/>   
+      <Stack.Screen name="Mock" component={MockScreen} options={{headerShown:false}}/>
+      <Stack.Screen name="Question" component={QuestionScreen} options={{headerShown:false}}/>
+      <Stack.Screen name="Test" component={TestScreen} options={{headerShown:false}}/>
     </Stack.Navigator>
 
   </NavigationContainer>
