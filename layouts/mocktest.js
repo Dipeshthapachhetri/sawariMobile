@@ -1,23 +1,30 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Image,ActivityIndicator,Text,Button } from 'react-native';
 
-const OptScreen = ({ navigation }) => {
+const MockScreen = ({ navigation }) => {
    
   return (
+    <View style={{flex:1}}>
+    <View style={{flex:1,backgroundColor:'#5ce1e6'}}>
+    <Text style={{fontSize:22,fontWeight:'700',paddingHorizontal:20, marginTop:20}}>
+    Ready for the Mocktest, Shiva?
+    </Text>
+    </View>
+
     <View style={styles.container}>
       <Image source={require('../assets/killer.png')} style={styles.logo} />
-      <View style= {{margin:30}}>
-      <Button title="Mock Test"onPress={() => navigation.navigate('Mock')}/>
-      </View>
-      <Button title="View All"onPress={() => navigation.navigate('Question')}/>
-    
+      <Button
+      title="lET'S GO!!!"
+      onPress={() => navigation.navigate('Test')}
+    />
+    </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 10,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
@@ -30,4 +37,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OptScreen;
+export default MockScreen;

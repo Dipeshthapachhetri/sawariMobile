@@ -8,7 +8,6 @@ import HomeScreen from './home';
 import SettingsScreen from './settings';
 import NewsScreen from './news';
 
-
 import  Icon  from 'react-native-vector-icons/Ionicons';
 
 //screen names
