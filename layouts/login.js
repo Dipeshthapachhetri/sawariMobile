@@ -10,6 +10,7 @@ const LoginScreen = ({ navigation }) => {
       title="Login"
       onPress={() => navigation.navigate('Navigator')}
     />
+    <Text>Samikshya Change</Text>
     </View>
   );
 };
