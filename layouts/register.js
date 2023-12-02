@@ -1,19 +1,31 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Image,ActivityIndicator } from 'react-native';
+import { StyleSheet, View, Image,ActivityIndicator ,Text, TouchableOpacity} from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
+import { blue } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const RegisterScreen = ({ navigation }) => {
-  useEffect(() => {
-    setTimeout(() => {
-      navigation.replace('Login');
-    }, 3000);
-  }, [navigation]);
+ 
 
   return (
     <View style={styles.container}>
       
       <Image source={require('../assets/killer.png')} style={styles.logo} />
+
+      <TextInput placeholder='UserName' style= {styles.input} ></TextInput>
+      <TextInput placeholder='Contact' style= {styles.input} ></TextInput>
+      <TextInput placeholder='Email' style= {styles.input} ></TextInput>
       
-    <ActivityIndicator/>
+<TextInput placeholder='Password' style= {styles.input} secureTextEntry={true}></TextInput>
+<TextInput placeholder='ConfirmPassword' style= {styles.input} secureTextEntry={true}></TextInput>
+<View>
+  <TouchableOpacity onPress={() => navigation.navigate("Login")} style={styles.button}>
+  <Text style={{color:'white',textAlign:'center',fontWeight:600}}>REGISTER</Text>
+  </TouchableOpacity>
+  
+</View>
+    
+
     </View>
   );
 };
@@ -23,7 +35,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#F9FBFC',
+    paddingHorizontal:20,
   },
   logo: {
     width: 120,
@@ -31,6 +44,25 @@ const styles = StyleSheet.create({
     borderRadius:90
     
   },
+  input:{
+    backgroundColor: '#ffff',
+    width: '100%',
+    borderColor: '#e8e8e8',
+    borderRadius: 5,
+    borderWidth: 1,
+    paddingLeft: 10,
+    marginVertical: 7,
+  
+
+  },
+  button:{
+    backgroundColor:'#00c2cb',
+    padding: 10,
+    width: 120,
+    borderRadius:5,
+    borderWidth:1,
+    marginBottom:5
+  }
 });
 
 export default RegisterScreen;

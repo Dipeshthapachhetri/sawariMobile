@@ -13,6 +13,8 @@ import NavigationBar from './layouts/navigator';
 import SplashScreen from './layouts/splash';
 import LoginScreen from './layouts/login';
 import RegisterScreen from './layouts/register';
+import ForgotPwScreen from './layouts/forgotPw';
+import PwResetScreen from './layouts/pwReset';
 import OptScreen from './layouts/opt';
 import type {PropsWithChildren} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -72,6 +74,8 @@ function App(): JSX.Element {
       <Stack.Screen name="Mock" component={MockScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Question" component={QuestionScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Test" component={TestScreen} options={{headerShown:false}}/>
+      <Stack.Screen name ="ForgotPw" component={ForgotPwScreen} options={{headerShown:false}}/>
+      <Stack.Screen name="PwReset" component={PwResetScreen} options={{headerShown:false}}/>
     </Stack.Navigator>
 
   </NavigationContainer>
