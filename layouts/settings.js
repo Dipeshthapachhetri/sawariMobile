@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Image,ActivityIndicator,Text } from 'react-native';
+import { StyleSheet, View, Image,ActivityIndicator,Text, Button, TouchableOpacity } from 'react-native';
 
 
 
@@ -9,10 +9,16 @@ const SettingScreen = ({ navigation }) => {
   }, [navigation]);
 
   return (
-    <View style={styles.container}>
-      <Text>setting</Text>
-      <Image source={require('../assets/killer.png')} style={styles.logo} />
+  <View style={styles.container}>
+    <View style={{flex:1,flexDirection:'row',backgroundColor:'red',width:'100%',padding:2}}>
+            <TouchableOpacity onPress={() => navigation.navigate('Navigator')} style={{backgroundColor:'blue',padding:5,borderRadius:5}}><Text>Back</Text></TouchableOpacity>
     </View>
+
+    <View style={{flex:9}}>
+      
+    </View>
+    
+  </View>
   );
 };
 
