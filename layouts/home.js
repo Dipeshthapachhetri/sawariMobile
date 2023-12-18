@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Image,ActivityIndicator,Text,TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import  Icon  from 'react-native-vector-icons/Ionicons';
 
 const HomeScreen = ({ navigation }) => {
   useEffect(() => {
@@ -29,7 +30,7 @@ const categories=['Bike','scooter','car','bus','excavator','micro'];
               style={{flex:1,width:130,height:140,resizeMode:'cover'}}/>
             </View>
             <View style={{flex:1,backgroundColor:'white',borderColor:'grey',borderWidth:2,borderRadius:10}}>
-          <Text style={{textAlign:'center',marginTop:2}}>{category}</Text>
+          <Text style={{textAlign:'center',marginTop:2}}>{category}</Text> 
             </View>
             </View>
           </TouchableOpacity>)

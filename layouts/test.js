@@ -25,11 +25,14 @@ const TestScreen = ({ navigation }) => {
           { cancelable: false }
         );
       }
-   
+      const questions=[{_id:'a',
+        number:1,question:'what is the name of two wheeler?',options:['car','bike','truck','lorry'],correct:'bike',category:[{categoryLetter:'A',vehicles:['bike','scooter']}],subject:'GK',image:{bool:false,imageData:''}
+      }]
+     
   return (
     
     <View style={{flex:1}}>
-    <View style={{flexDirection:'row',backgroundColor:'#5ce1e6',justifyContent:'center',alignItems:'center',height:'10%'}}>
+    <View style={{flexDirection:'row',backgroundColor:'#5ce1e6',justifyContent:'center',alignItems:'center',flex:1}}>
     
       <View style={{flex:2, marginLeft:5}}>
         <TouchableOpacity style={{ backgroundColor: 'blue', padding: 10,borderRadius:5 }} onPress={showAlertAndNavigate}>
@@ -52,48 +55,38 @@ const TestScreen = ({ navigation }) => {
     </View>
 
     <View style={styles.container}>
-        <ScrollView style={{width:'100%'}}>
-        <View style={{height:scrollHeight/3, width:'100%'}}>
+    <ScrollView style={{width:'100%'}}>
+    {
+          questions.map(question=>{
+            return(
+              <View>
+                <Text>   {question.number}   {question.question}</Text>
+                <View>
+                  {
+                  question.options.map(option=>{
+                    return(
+                  <Button  style={{margin:10}}title={option}/>
+                  )
+                })
+              }
+                </View>
+              </View>
+            )
+          })}
         
-            <View style={{flex:4,backgroundColor:'red',borderColor:'grey',borderWidth:2,borderRadius:10}}>
-              
-            </View>
-            <View style={{flex:1,backgroundColor:'white',borderColor:'grey',borderWidth:2,borderRadius:10}}>
-          <Text style={{textAlign:'center',marginTop:2}}>Answer</Text>
-            </View>
-        </View>
-        <View style={{height:scrollHeight/3,width:'100%'}}>
-        
-            <View style={{flex:4,backgroundColor:'red',borderColor:'grey',borderWidth:2,borderRadius:10}}>
-              
-            </View>
-            <View style={{flex:1,backgroundColor:'white',borderColor:'grey',borderWidth:2,borderRadius:10}}>
-          <Text style={{textAlign:'center',marginTop:2}}>Answer</Text>
-            </View>
-        </View>
-        <View style={{height:scrollHeight/3,width:'100%'}}>
-        
-        <View style={{flex:4,backgroundColor:'red',borderColor:'grey',borderWidth:2,borderRadius:10}}>
-          
-        </View>
-        <View style={{flex:1,backgroundColor:'white',borderColor:'grey',borderWidth:2,borderRadius:10}}>
-            <Text style={{textAlign:'center',marginTop:2}}>Answer</Text>
-        </View>
-        </View>
-        <View style={{height:scrollHeight/3,width:'100%'}}>
-        
-        <View style={{flex:4,backgroundColor:'red',borderColor:'grey',borderWidth:2,borderRadius:10}}>
-          
-        </View>
-        <View style={{flex:1,backgroundColor:'white',borderColor:'grey',borderWidth:2,borderRadius:10}}>
-            <Text style={{textAlign:'center',marginTop:2}}>Answer</Text>
-        </View>
-        </View>
     </ScrollView>
     </View>
     
-    <View style={{backgroundColor:'#5ce1e6',justifyContent:'center',alignItems:'center',height:'5%'}}>
-   
+    <View style={{flexDirection:'row',backgroundColor:'#5ce1e6',justifyContent:'center',alignItems:'center',flex:1}}>
+    <View style={{flex:2,backgroundColor:'white',borderColor:'grey',justifyContent:'center',borderWidth:2,borderRadius:10,height:'80%',margin:10}}>
+          <Text style={{marginLeft:10}}>Question:   </Text> 
+    </View>
+    <View style={{flex:1, marginRight:5}}>
+        <TouchableOpacity style={{ backgroundColor: 'blue', padding: 10, borderRadius:5 }}onPress={() => navigation.navigate('Navigator')}>
+         <Text style={{ color: 'white',textAlign:'center' }}>Next</Text>
+        </TouchableOpacity>
+      </View>
+
     </View>
     </View>
   );
@@ -104,7 +97,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
-    height:'85%',
+    flex:8,
   },
   logo: {
     width: 120,
