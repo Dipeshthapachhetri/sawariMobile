@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Image,ActivityIndicator,Text,Button, TouchableOpacity} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import  Icon  from 'react-native-vector-icons/Ionicons';
 
 
 const LoginScreen = ({ navigation }) => {
@@ -10,7 +9,7 @@ const LoginScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Image source={require('../assets/killer.png')} style={styles.logo} />
      
-    <TextInput placeholder= 'UserName' style= {styles.input} ></TextInput>
+    <TextInput placeholder= {'UserName'} style= {styles.input} ></TextInput>
 
     <TextInput placeholder={'Password'} style= {styles.input} secureTextEntry={true}></TextInput>
 
