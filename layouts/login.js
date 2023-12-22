@@ -1,21 +1,80 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, View, Image,ActivityIndicator,Text,Button, TouchableOpacity} from 'react-native';
+import React, { useEffect , useState } from 'react';
+import { StyleSheet, View, Image,ActivityIndicator,Text,Button, TouchableOpacity, Alert} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import  Icon  from 'react-native-vector-icons/Ionicons';
-
+import { useSelector ,useDispatch } from 'react-redux';
+import { login } from './redux/userSlice';
 
 const LoginScreen = ({ navigation }) => {
-   
-  return (
-    <View style={styles.container}>
-      <Image source={require('../assets/killer.png')} style={styles.logo} />
-     
-    <TextInput placeholder= 'UserName' style= {styles.input} ></TextInput>
+  //const dispatch=useDispatch();
+ // let user=useSelector(state=>state.user);
+  const [email,setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  let dispatch=useDispatch();
+ const storeToken=async(res)=>{
+   let data = {userDetail:res.user,token:res.token}
 
-    <TextInput placeholder={'Password'} style= {styles.input} secureTextEntry={true}></TextInput>
+    dispatch(login(data));
+        navigation.navigate("Navigator")
+      
+    }
+
+ /* const fetchData= async() => {
+  const data = await fetch ('https://sawari-backend.vercel.app/auth/login')
+  const result = await data.json()
+   dispatch(login(result));
+ }
+    */
+   
+  async function loginUser() 
+{
+  console.log(email,password)
+  let item = {email,password};
+
+  let result = await fetch("https://sawari-backend.vercel.app/auth/login",{
+    method:'POST',
+    headers:{
+      "Content-Type":"application/json",
+      "Accept":'application/json'
+    },
+    body:JSON.stringify(item)
+  });
+  result = await result.json();
+  console.log("result",result)
+
+
+  if(result.message==="Success"){
+  storeToken(result)
+  }
+  
+
+}
+  /*useEffect(()=>{
+    console.log(user);
+  },[user])*/
+
+  return (
+    
+    <View style={styles.container}>
+    <Image source={require('../assets/killer.png')} style={styles.logo} />
+    
+    <TextInput 
+      placeholder= 'Email' 
+      value={email} 
+      onChangeText={(e) => setEmail(e)} 
+      style= {styles.input} >
+    </TextInput>
+
+    <TextInput 
+      placeholder={'Password'} 
+      value={password} 
+      onChangeText={(e) => setPassword(e)} 
+      style= {styles.input} 
+      secureTextEntry={true}></TextInput>
+
 
     <View>
-  <TouchableOpacity onPress={() => navigation.navigate("Navigator")} style={styles.button1}>
+  <TouchableOpacity style={styles.button1} onPress={loginUser}>
   <Text style={{color:'grey',textAlign:'center',fontWeight:600}}>Login</Text>
   </TouchableOpacity>
   
@@ -37,7 +96,7 @@ const LoginScreen = ({ navigation }) => {
 
     </View>
   );
-};
+  }
 
 const styles = StyleSheet.create({
   container: {
@@ -78,7 +137,7 @@ const styles = StyleSheet.create({
     padding:10,
     width:100,
     borderRadius:5,
-    borderWidth:1,
+    borderWidth:0.5,
   }
 
 });

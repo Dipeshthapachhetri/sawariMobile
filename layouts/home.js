@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Image,ActivityIndicator,Text,TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-
+import {useSelector} from 'react-redux';
 const HomeScreen = ({ navigation }) => {
+  const user=useSelector(state=>state.user.userDetail);
   useEffect(() => {
     }, [navigation]);
 
@@ -13,7 +14,7 @@ const categories=['Bike','scooter','car','bus','excavator','micro'];
     
       <View style={{flex:1,backgroundColor:'#5ce1e6'}}>
     <Text style={{fontSize:22,fontWeight:'700',paddingHorizontal:20, marginTop:20}}>
-    What can we help you with, Shiva?
+    What can we help you with, {user.username}
     </Text>
     </View>
     <View style={{flex:10}}>

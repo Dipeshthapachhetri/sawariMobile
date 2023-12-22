@@ -22,7 +22,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {SafeAreaView,ScrollView,StatusBar,StyleSheet,Text,useColorScheme,View,} from 'react-native';
 import {Colors, DebugInstructions, Header, LearnMoreLinks, ReloadInstructions,} from 'react-native/Libraries/NewAppScreen';
 
-
+import { Provider } from 'react-redux';
+import store from "./layouts/app/store";
 const Stack = createStackNavigator();
 
 type SectionProps = PropsWithChildren<{
@@ -63,6 +64,7 @@ function App(): JSX.Element {
   };
 
   return (
+    <Provider store={store} >
     <NavigationContainer>
 
     <Stack.Navigator>
@@ -79,6 +81,7 @@ function App(): JSX.Element {
     </Stack.Navigator>
 
   </NavigationContainer>
+  </Provider>
   );
 }
 
