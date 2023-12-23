@@ -5,6 +5,7 @@ import  Icon  from 'react-native-vector-icons/Ionicons';
 import { useSelector ,useDispatch } from 'react-redux';
 import { login } from './redux/userSlice';
 
+
 const LoginScreen = ({ navigation }) => {
   //const dispatch=useDispatch();
  // let user=useSelector(state=>state.user);
@@ -71,7 +72,6 @@ const LoginScreen = ({ navigation }) => {
       onChangeText={(e) => setPassword(e)} 
       style= {styles.input} 
       secureTextEntry={true}></TextInput>
-
 
     <View>
   <TouchableOpacity style={styles.button1} onPress={loginUser}>
