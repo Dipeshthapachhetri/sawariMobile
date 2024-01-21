@@ -9,13 +9,12 @@ const OptScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Image source={require('../assets/killer.png')} style={styles.logo} />
      
-        <Text style={styles.text1}>You are about to attempt the</Text>
+        <Text style={styles.text1}>You are about to attempt</Text>
         <Text style={styles.text2}>SAWARIMOBILE Test Questions</Text>
-        <Text style={styles.text1}>You will be asked questions based on </Text>
+        <Text style={styles.text1}>You will be asked questions of</Text>
         <Text style={styles.text2}>motorcycle</Text>
-      
-      <Button title="Mock Test"onPress={() => navigation.navigate('Mock')}/>
-      <View style= {{margin:30}}>
+
+      <View style={{margin:10}}>
       <Button title="Mock Test"onPress={() => navigation.navigate('Mock',{category:route.params.category , questions:route.params.questions })}/>
       </View>
       <Button title="View All"onPress={() => navigation.navigate('Question',{category:route.params.category , questions:route.params.questions })}/>
