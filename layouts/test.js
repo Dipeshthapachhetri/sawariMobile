@@ -25,6 +25,7 @@ const TestScreen = ({ navigation }) => {
           { cancelable: false }
         );
       }
+      
       const questions=[{_id:'a',
         number:1,question:'what is the name of two wheeler?',options:['car','bike','truck','lorry'],correct:'bike',category:[{categoryLetter:'A',vehicles:['bike','scooter']}],subject:'GK',image:{bool:false,imageData:''}
       }]
@@ -36,12 +37,12 @@ const TestScreen = ({ navigation }) => {
     
       <View style={{flex:2, marginLeft:5}}>
         <TouchableOpacity style={{ backgroundColor: 'blue', padding: 10,borderRadius:5 }} onPress={showAlertAndNavigate}>
-         <Text style={{ color: 'white',textAlign:'center' }}>Submit</Text>
+         <Text style={{ color: 'white',textAlign:'center' }}>Skip</Text>
         </TouchableOpacity>
       </View>
 
       <View style={{flex:2}}>
-        <Text style={{fontSize:22,fontWeight:'700',paddingHorizontal:20,textAlign:'center'}}>
+        <Text style={{fontSize:22,fontWeight:'700',paddingHorizontal:20,textAlign:'center',  color:'#313232'}}>
             Test
         </Text>
       </View>
@@ -79,7 +80,7 @@ const TestScreen = ({ navigation }) => {
     
     <View style={{flexDirection:'row',backgroundColor:'#5ce1e6',justifyContent:'center',alignItems:'center',flex:1}}>
     <View style={{flex:2,backgroundColor:'white',borderColor:'grey',justifyContent:'center',borderWidth:2,borderRadius:10,height:'80%',margin:10}}>
-          <Text style={{marginLeft:10}}>Question:   </Text> 
+          <Text style={{marginLeft:10,fontSize:18,color:'#414141'}}>Question:{1 + '/'}   </Text> 
     </View>
     <View style={{flex:1, marginRight:5}}>
         <TouchableOpacity style={{ backgroundColor: 'blue', padding: 10, borderRadius:5 }}onPress={() => navigation.navigate('Navigator')}>
