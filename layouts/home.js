@@ -101,7 +101,7 @@ useEffect(() => {getVehicles();getQuestions(),getCategories()},[]);
         {
                 vehicles.map(vehicle=>{
                   return(
-                    <TouchableOpacity key={vehicle._id} onPress={()=> {handleVehiclePress(vehicle.name), navigation.navigate("Opt") } }style={{height:180, width:"40%",marginLeft:10, borderWidth:0.5, borderRadius:8,marginTop:20,borderColor:'#dddddd'}}>
+                    <TouchableOpacity key={vehicle._id} onPress={()=> {handleVehiclePress(vehicle.name)} }style={{height:180, width:"40%",marginLeft:10, borderWidth:0.5, borderRadius:8,marginTop:20,borderColor:'#dddddd'}}>
                     <View style={{flex:1}}>
                     <View style={{flex:4, justifyContent:"center",alignItems:'center',borderColor:'grey',borderWidth:2,borderRadius:10}}>
                       <Image source={require('../assets/motorcycle.jpg')}
