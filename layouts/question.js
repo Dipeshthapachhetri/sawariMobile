@@ -1,7 +1,13 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Image,ActivityIndicator,Text,Button } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 
 const QuestionScreen = ({ navigation }) => {
+
+
+   const route=useRoute()
+   console.log(route.params.category);
+   console.log(route.params.questions);
    
   return (
     <View style={{flex:1}}>
