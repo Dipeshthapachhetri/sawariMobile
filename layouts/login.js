@@ -12,6 +12,8 @@ const LoginScreen = ({ navigation }) => {
   const [email,setEmail] = useState("");
   const [password, setPassword] = useState("");
   let dispatch=useDispatch();
+
+  
  const storeToken=async(res)=>{
    let data = {userDetail:res.user,token:res.token}
 
