@@ -48,6 +48,7 @@ const HomeScreen = ({ navigation }) => {
       return cat;
     }) 
     console.log("Filtered is:",data);
+    return data;
  
   }
   const getVehicles=async()=>{
@@ -80,7 +81,8 @@ let cat= categories.find(category=>{
  
 })
 console.log(cat)
-filterQuestions(cat.categoryLetter)
+let quest= filterQuestions(cat.categoryLetter);
+navigation.navigate("Opt", { category: cat, questions: quest })
 }
 useEffect(() => {getVehicles();getQuestions(),getCategories()},[]);
 
