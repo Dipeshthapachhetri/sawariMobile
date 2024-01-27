@@ -4,18 +4,18 @@ import { useRoute } from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 
 const MockScreen = ({ navigation }) => {
-  const user=useSelector(state=>state.user.userDetail);
 
-   const route=useRoute()
-   console.log(route.params.category);
-   console.log(route.params.questions);
+
+  const route=useRoute()
+  console.log(route.params.category);
+  console.log(route.params.questions);
 
    
   return (
     <View style={{flex:1}}>
     <View style={{flex:1,backgroundColor:'#5ce1e6'}}>
     <Text style={{fontSize:22,fontWeight:'700',paddingHorizontal:20, marginTop:20}}>
-    Ready for the Mocktest, {user.username}?
+    Ready for the Mocktest, Shiva?
     </Text>
     </View>
 
@@ -23,8 +23,7 @@ const MockScreen = ({ navigation }) => {
       <Image source={require('../assets/killer.png')} style={styles.logo} />
       <Button
       title="lET'S GO!!!"
-      onPress={() => navigation.navigate('Test')}
-    />
+      onPress={() => navigation.navigate('Test',{category:route.params.category , questions:route.params.questions })}/>
     </View>
     </View>
   );
