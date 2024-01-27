@@ -16,6 +16,7 @@ import RegisterScreen from './layouts/register';
 import ForgotPwScreen from './layouts/forgotPw';
 import PwResetScreen from './layouts/pwReset';
 import OptScreen from './layouts/opt';
+import ResultScreen from './layouts/result';
 import type {PropsWithChildren} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -24,6 +25,7 @@ import {Colors, DebugInstructions, Header, LearnMoreLinks, ReloadInstructions,} 
 
 import { Provider } from 'react-redux';
 import store from "./layouts/app/store";
+import HomeScreen from './layouts/home';
 const Stack = createStackNavigator();
 
 type SectionProps = PropsWithChildren<{
@@ -77,8 +79,13 @@ function App(): JSX.Element {
       <Stack.Screen name="Question" component={QuestionScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Test" component={TestScreen} options={{headerShown:false}}/>
       <Stack.Screen name ="ForgotPw" component={ForgotPwScreen} options={{headerShown:false}}/>
-      <Stack.Screen name="PwReset" component={PwResetScreen} options={{headerShown:false}}/>
-    </Stack.Navigator>
+      <Stack.Screen name = "Result" component={ResultScreen} options={{headerShown:false}}/>
+
+
+
+      <Stack.Screen name="Go" component={TestScreen} options={{headerShown:false}}/>
+   
+       </Stack.Navigator>
 
   </NavigationContainer>
   </Provider>
