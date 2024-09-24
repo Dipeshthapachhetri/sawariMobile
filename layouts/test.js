@@ -3,6 +3,7 @@ import { StyleSheet, View, Image, ActivityIndicator, Text, Button, TouchableOpac
 import { Alert } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { useRoute, useNavigation } from '@react-navigation/native'
+import { current } from '@reduxjs/toolkit';
 
 const screenHeight = Dimensions.get('window').height;
 const scrollHeight = screenHeight * 0.85;
@@ -12,6 +13,7 @@ const TestScreen = ({ }) => {
   console.log(route.params.category);
   console.log(route.params.questions);
   let quest = (route.params.questions);
+ 
 
   const totalque = 20;
 
@@ -104,6 +106,7 @@ const TestScreen = ({ }) => {
    },[index])
   
   const currentQuest = quest[index];
+  
   console.log(answerStatus)
 
   return (
@@ -135,10 +138,30 @@ const TestScreen = ({ }) => {
 
 
 
-      <View style={{ marginVertical: 200 }}>
+      <View style={{ marginVertical: 120 }}>
 
         <View style={{}}  >
-          <Text style={{ fontSize: 18, fontWeight: 'bold', padding: 10, color: 'black' }} >{currentQuest.number}.{currentQuest.question}</Text>
+          {
+                 currentQuest.subject.number==1? 
+                 index <5 
+                 :currentQuest.subject.number==2
+               
+                
+
+            
+          }
+          
+          <Text style={{ fontSize: 18, fontWeight: 'bold', padding: 10, color: 'black' }} >{index+1}.{currentQuest.question}</Text>
+        </View>
+
+        <View style={{alignItems:'center'}} >
+        
+          {(currentQuest.image.bool)?
+            <Image src={'https://link.storjshare.io/s/jwbuqlac5om3zyc65bnsjpy7l37a/sawari/'+currentQuest.image.imageData+'?wrap=0'} style={{width: 130, height: 140, resizeMode: 'cover' }}/>
+              
+          : <Text style={{color:'white'}}>{index}</Text>
+          }
+          
         </View>
 
         <View >

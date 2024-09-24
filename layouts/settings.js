@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image,ActivityIndicator,Text, Button, TouchableOpacity,Switch } from 'react-native';
+
+import { StyleSheet, View, Image, ActivityIndicator, Text, Button, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 import { ScrollView } from 'react-native-gesture-handler';
-import  Icon  from 'react-native-vector-icons/Ionicons';
 import FeatherIcon from 'react-native-vector-icons/Feather'
 
 const SettingScreen = ({ navigation }) => {
@@ -53,22 +55,18 @@ const SettingScreen = ({ navigation }) => {
   ];
 
   return (
-  <View style={styles.container}>
-  <ScrollView style={{width:'100%'}}>
-    <View style={{flexDirection:'row',backgroundColor: '#5ce1e6',width:'100%'}}>
-      <View style={{flex:1.5,flexDirection:'row',alignItems:'center'}}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={{backgroundColor:'#f2f2f2',borderRadius:5,width:50,height:25,marginLeft:10,alignItems:'center',justifyContent:'center'}}>
-         <Icon name='arrow-back-outline' size={20} />
-        </TouchableOpacity>
-      </View>
-      <View style={{flex:4,flexDirection:'row'}}>
-      <View style={styles.header}>
-          <Text style={styles.title}>Settings</Text>
-      </View>
-      </View> 
-    </View>
+    <View style={styles.container}>
+      <View style={{ flex: 1, backgroundColor: '#5ce1e6', width: '100%' }}>
+        <View style={{ flex: 2, marginTop: 20 }}>
 
-    <View style={{flex:10,width:'100%'}}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={{backgroundColor:'blue',borderRadius:5,width:50,height:25,marginLeft:10,alignItems:'center',justifyContent:'center'}}>
+        <Icon name='arrow-back-outline' size={20} />
+       </TouchableOpacity>
+       
+          <View style={{ flex: 2 }}>
+            <Text style={{justifyContent: 'center', marginTop: 2, }}>Settings</Text>
+          </View>
+          <View style={{ flex: 2 }}>
 
     {SECTIONS.map(({ header, items }) => (
           <View style={styles.section} key={header}>
@@ -81,12 +79,8 @@ const SettingScreen = ({ navigation }) => {
                     <View style={[styles.rowIcon, { backgroundColor: color }]}>
                       <FeatherIcon color="#fff" name={icon} size={18} />
                     </View>
-
-                    <Text style={styles.rowLabel}>{label}</Text>
-
-                    <View style={styles.rowSpacer} />
-
-                    {type === 'boolean' && <Switch value={value} />}
+          </View>
+      <View style={{ flex: 10, width: '100%' }}>
 
                     {type === 'link' && (<FeatherIcon color="#0c0c0c" name="chevron-right" size={22} />)}
 
@@ -97,8 +91,8 @@ const SettingScreen = ({ navigation }) => {
           </View>
         ))}
         </View>
-      </ScrollView>
       </View>
+    </View>
   );
 };
 
@@ -124,8 +118,8 @@ const styles = StyleSheet.create({
   logo: {
     width: 120,
     height: 120,
-    borderRadius:90
-    
+    borderRadius: 90
+
   },
   section: {
     paddingHorizontal: 24,
@@ -172,3 +166,4 @@ const styles = StyleSheet.create({
 });
 
 export default SettingScreen;
+
