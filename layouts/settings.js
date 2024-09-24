@@ -45,6 +45,13 @@ const SettingScreen = ({ navigation }) => {
         { icon: 'download', color: '#fd2d54', label: 'Downloads', type: 'link' },
       ],
     },
+    {
+      header: 'Activity',
+      icon: 'align-center',
+      items: [
+        { icon: 'log-out', color: '#5ce1e6', label: 'logout', type: 'link' },
+      ],
+    },
   ];
 
   return (
@@ -61,19 +68,28 @@ const SettingScreen = ({ navigation }) => {
           </View>
           <View style={{ flex: 2 }}>
 
+    {SECTIONS.map(({ header, items }) => (
+          <View style={styles.section} key={header}>
+            <Text style={styles.sectionHeader}>{header}</Text>
+            {items.map(({ label, icon, type, value, color }, index) => {
+              return (
+                <TouchableOpacity key={label}  onPress={() => {}}>
+                  <View style={styles.row}>
+
+                    <View style={[styles.rowIcon, { backgroundColor: color }]}>
+                      <FeatherIcon color="#fff" name={icon} size={18} />
+                    </View>
           </View>
-
-        </View>
-      </View>
-
-
       <View style={{ flex: 10, width: '100%' }}>
 
-        <View style={{ backgroundColor: 'white', borderColor: 'grey', borderWidth: 2, borderRadius: 10, width: '100%', height: '10%', marginTop: 10 }}>
-          <Text style={{ textAlign: 'center', marginTop: 2 }}>profile</Text>
-        </View>
-        <View style={{ backgroundColor: 'white', borderColor: 'grey', borderWidth: 2, borderRadius: 10, width: '100%', height: '10%', marginTop: 10 }}>
-          <Text style={{ textAlign: 'center', marginTop: 2 }}>Logout</Text>
+                    {type === 'link' && (<FeatherIcon color="#0c0c0c" name="chevron-right" size={22} />)}
+
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        ))}
         </View>
       </View>
     </View>

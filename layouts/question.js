@@ -1,15 +1,64 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import { StyleSheet, View, Image,ActivityIndicator,Text,Button } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
 
+
+
+// Fisher-Yates Shuffle Algorithm
+function fisherYatesShuffle(array) {
+  let currentIndex = array.length, randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // Swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]
+    ];
+  }
+
+  return array;
+}
+
+// Function to remove duplicate questions
+function removeDuplicateQuestions(array) {
+  const uniqueQuestions = [];
+  const questionSet = new Set();
+
+  array.forEach(question => {
+    if (!questionSet.has(question.question)) {
+      questionSet.add(question.question);
+      uniqueQuestions.push(question);
+    }
+  });
+
+  return uniqueQuestions;
+}
+
+
+
 const QuestionScreen = ({ navigation }) => {
 
 
-   const route=useRoute()
-   console.log(route.params.category);
-   console.log(route.params.questions);
-let quest=(route.params.questions);
+  const route = useRoute();
+  const [quest, setQuest] = useState([]);
+
+  useEffect(() => {
+    // Get the questions from the route parameters
+    let questions = route.params.questions;
+
+    // Remove duplicates if there are any
+    let uniqueQuestions = removeDuplicateQuestions(questions);
+console.log("uniquequestions",uniqueQuestions)
+    // Shuffle the unique questions
+    let shuffledQuestions = fisherYatesShuffle([...uniqueQuestions]);
+
+    // Set the shuffled and unique questions to state
+    setQuest(shuffledQuestions);
+  }, [route.params.questions]);
    
   return (
     <View style={{flex:1}}>
