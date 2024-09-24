@@ -43,6 +43,13 @@ const SettingScreen = ({ navigation }) => {
         { icon: 'download', color: '#fd2d54', label: 'Downloads', type: 'link' },
       ],
     },
+    {
+      header: 'Activity',
+      icon: 'align-center',
+      items: [
+        { icon: 'log-out', color: '#5ce1e6', label: 'logout', type: 'link' },
+      ],
+    },
   ];
 
   return (
@@ -68,17 +75,11 @@ const SettingScreen = ({ navigation }) => {
             <Text style={styles.sectionHeader}>{header}</Text>
             {items.map(({ label, icon, type, value, color }, index) => {
               return (
-                <TouchableOpacity
-                  key={label}
-                  onPress={() => {
-                    // handle onPress
-                  }}>
+                <TouchableOpacity key={label}  onPress={() => {}}>
                   <View style={styles.row}>
+
                     <View style={[styles.rowIcon, { backgroundColor: color }]}>
-                      <FeatherIcon
-                        color="#fff"
-                        name={icon}
-                        size={18} />
+                      <FeatherIcon color="#fff" name={icon} size={18} />
                     </View>
 
                     <Text style={styles.rowLabel}>{label}</Text>
@@ -87,12 +88,8 @@ const SettingScreen = ({ navigation }) => {
 
                     {type === 'boolean' && <Switch value={value} />}
 
-                    {type === 'link' && (
-                      <FeatherIcon
-                        color="#0c0c0c"
-                        name="chevron-right"
-                        size={22} />
-                    )}
+                    {type === 'link' && (<FeatherIcon color="#0c0c0c" name="chevron-right" size={22} />)}
+
                   </View>
                 </TouchableOpacity>
               );
